@@ -32,7 +32,7 @@
     "prebuild-install": "^7.1.1"
   },
   "scripts": {
-    "install": "prebuild-install -r napi || node ./scripts/patch_leptonica.js && npm run build-tesseract && node-gyp rebuild",
+    "install": "prebuild-install -r napi || node ./scripts/patch-leptonica.js && npm run build-tesseract && node-gyp rebuild",
     "prepare": "npm run build",
     "configure": "node-gyp configure",
     "build": "npm run configure && npm run build-cc && npm run build-js",
