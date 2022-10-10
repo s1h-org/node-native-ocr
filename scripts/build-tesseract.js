@@ -1,4 +1,5 @@
 var fs = require('fs');
+const { join } = require('path');
 var path = require('path');
 var shell = require('shelljs');
 
@@ -89,6 +90,12 @@ function checkVersion (a, b) {
   return y.length > x.length ? -1 : 0;
 }
 
+function applyPatchFile(filename, workingDirectory) {
+  const fullPatchFilePath = join(homeDir, 'patches', filename);
+  shell.echo(`Applying patch ${fullPatchFilePath}`);
+  shell.exec(`git apply ${fullPatchFilePath} --directory=${workingDirectory} --ignore-space-change --ignore-whitespace`);
+}
+
 function buildLibjpeg (dirName) {
   shell.echo('Building libjpeg.');
 
@@ -103,6 +110,8 @@ function buildLibjpeg (dirName) {
 
 function buildLeptonica (dirName) {
   shell.echo('Building Leptonica.');
+
+  applyPatchFile('leptonica_cmakelists.patch', dirName);
 
   runCMakeBuild (dirName, cmakeBuildType, 
     {
