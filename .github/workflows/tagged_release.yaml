@@ -8,7 +8,7 @@ jobs:
   prebuild-node-macos:
     strategy:
       matrix:
-        os: [ macos-latest ]
+        os: [ macos-11 ]
         node: [ 16.13.0 ]
         runtime: [ node ]
         arch: [ x64, arm64 ]
@@ -33,7 +33,7 @@ jobs:
   prebuild-node:
     strategy:
       matrix:
-        os: [ ubuntu-latest, windows-2019 ]
+        os: [ ubuntu-20.04, windows-2019 ]
         node: [ 16.13.0 ]
         runtime: [ node ]
         arch: [ x64 ]

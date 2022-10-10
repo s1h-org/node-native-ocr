@@ -1,6 +1,6 @@
 name: Run CI
 on:
-  push
+  pull-request
 
 jobs:
   test:
