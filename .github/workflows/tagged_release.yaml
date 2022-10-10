@@ -71,10 +71,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
-      - name: Build JS 
-        shell: bash
-        run: |
-          npm run build-js
+      - name: Install
+        run: npm ci --unsafe-perm
       - name: Publish tagged release
         uses: JS-DevTools/npm-publish@v1
         with:
