@@ -23,7 +23,7 @@
         [ "OS=='win'", {
           'libraries': [
             '../tesseract/build/bin/lib/tesseract41.lib',
-            '../leptonica/build/bin/lib/leptonica-1.80.0.lib',
+            '../leptonica/build/bin/lib/leptonica-1.83.0.lib',
             '../libjpeg/build/bin/lib/libjpeg.lib'
           ]
         }]
