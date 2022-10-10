@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6535632..2fc14a1 100644
+index 6535632..47d67ef 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -8,7 +8,7 @@
@@ -11,16 +11,7 @@ index 6535632..2fc14a1 100644
  cmake_policy(SET CMP0054 NEW)
  
  # In-source builds are disabled.
-@@ -42,7 +42,7 @@ set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMake Targets")
- project(leptonica C CXX)
- 
- set(VERSION_MAJOR 1)
--set(VERSION_MINOR 80)
-+set(VERSION_MINOR 83)
- set(VERSION_PATCH 0)
- set(VERSION_PLAIN ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
- set(MINIMUM_WEBPMUX_VERSION 0.5.0)
-@@ -55,8 +55,13 @@ else()
+@@ -55,6 +55,8 @@ else()
  endif()
  if(UNIX)
      option(SYM_LINK "Create symlink leptonica -> lept on UNIX" OFF)
@@ -28,13 +19,8 @@ index 6535632..2fc14a1 100644
 +    option(OPENJPEG_SUPPORT "Build with OpenJPEG support" OFF)
  endif()
  
-+set(leptonica_INSTALL_CMAKE_DIR "lib/cmake/leptonica"
-+    CACHE STRING "Install destination for CMake package files")
-+
  if(NOT SW_BUILD)
-     find_package(GIF)
-     find_package(JPEG)
-@@ -65,46 +70,61 @@ if(NOT SW_BUILD)
+@@ -65,46 +67,61 @@ if(NOT SW_BUILD)
      find_package(ZLIB)
      find_package(PkgConfig)
      if (PKG_CONFIG_FOUND)
@@ -135,7 +121,7 @@ index 6535632..2fc14a1 100644
          endif()
      endif()
  else() # SW_BUILD=ON
-@@ -192,7 +212,11 @@ endif()
+@@ -192,7 +209,11 @@ endif()
  
  set(AUTOCONFIG_SRC ${CMAKE_CURRENT_BINARY_DIR}/config_auto.h.in)
  set(AUTOCONFIG ${CMAKE_CURRENT_BINARY_DIR}/src/config_auto.h)
@@ -148,12 +134,3 @@ index 6535632..2fc14a1 100644
  
  include(Configure)
  
-@@ -261,7 +285,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lept.pc DESTINATION lib/pkgconfig)
- install(FILES
-     ${CMAKE_CURRENT_BINARY_DIR}/LeptonicaConfig.cmake
-     ${CMAKE_CURRENT_BINARY_DIR}/LeptonicaConfig-version.cmake
--    DESTINATION cmake)
-+    DESTINATION ${leptonica_INSTALL_CMAKE_DIR})
- 
- ########################################
- # uninstall target
