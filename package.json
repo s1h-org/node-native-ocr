@@ -1,6 +1,6 @@
 {
-  "name": "node-native-ocr",
-  "version": "0.2.0",
+  "name": "nno",
+  "version": "0.1.0",
   "description": "Native Node.js bindings for the Tesseract OCR project.",
   "gypfile": true,
   "main": "lib/index.js",
@@ -43,7 +43,7 @@
     "clean": "node-gyp clean",
     "clean-tesseract": "node ./scripts/clean-tesseract",
     "build-tesseract": "node ./scripts/build-tesseract",
-    "create-prebuild": "npm run build-tesseract && prebuild -t 3 -r napi",
+    "create-prebuild": "prebuild -t 3 -r napi",
     "// test": "lldb -- /usr/local/bin/node ./node_modules/.bin/ava --verbose --timeout=10s",
     "test": "npm run test-js",
     "test-js": "nyc ava --verbose --timeout=10s",
@@ -52,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stoefln/node-native-ocr.git"
+    "url": "git+https://github.com/s1h-org/node-native-ocr.git"
   },
   "ava": {
     "require": "babel-register",
@@ -76,12 +76,12 @@
   "author": "stoefln",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stoefln/node-native-ocr/issues"
+    "url": "https://github.com/s1h-org/node-native-ocr/issues"
   },
   "engine": {
     "node": ">=8.3.0"
   },
-  "homepage": "https://github.com/stoefln/node-native-ocr#readme",
+  "homepage": "https://github.com/s1h-org/node-native-ocr#readme",
   "files": [
     "cc/",
     "leptonica",
